@@ -1,0 +1,10 @@
+logging:
+  level:
+    com.intuit.karate: DEBUG
+
+spring:
+  security:
+    user:
+      name: it
+      password: it
+      token: aXQ6aXQ=

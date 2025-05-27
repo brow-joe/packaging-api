@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: chavito_postgres
+    environment:
+      POSTGRES_USER: guest
+      POSTGRES_PASSWORD: guest
+      POSTGRES_DB: chavito
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: chavito_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: guest@chavito.com
+      PGADMIN_DEFAULT_PASSWORD: guest
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres

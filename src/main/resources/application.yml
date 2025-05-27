@@ -1,0 +1,30 @@
+server:
+  port: ${API_PORT:8080}
+spring:
+  main:
+    banner-mode: 'off'
+  application:
+    name: packaging-api
+  security:
+    user:
+      name: ${API_USER:guest}
+      password: ${API_PASSWORD:guest}
+      roles: USER
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  default:
+    title: ${spring.application.name}
+    description: Documentation
+    terms-of-service: https://github.com/brow-joe
+    license:
+      name: private
+      url: https://github.com/brow-joe
+    version: 1.0.0
